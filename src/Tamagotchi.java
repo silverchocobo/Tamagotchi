@@ -21,48 +21,27 @@ public class Tamagotchi {
         this.vivo = vivo;
     }
 
-    public void dormir(){
-        System.out.println(nome + " dormiu!");
+    public void dormir() {
         this.idade++;
-        System.out.println("Idade: " + idade);
     }
 
-    public void morrer(){
+    public void morrer() {
         this.vivo = false;
-        System.out.println(nome +" morreu! :(");
     }
 
-    public void sentirfome(){
-        int escolha;
-        System.out.println(nome + " está com fome, o que deseja fazer?");
-        System.out.println("\n1 - Comer muito.\n2 - Comer pouco.\n3 - Não comer");
-        escolha = myObj.nextInt();
-        //Comer muito.
-        if (escolha == 1) {
-            comer_muito();
+        //Método comer muito
+        public void comer_muito () {
+            this.peso += 5;
+            if (peso < 20) {
+                dormir();
+            }
         }
 
-        //Comer pouco
-        if (escolha == 2) {
-            System.out.println(nome + "comeu pouco.");
-            setPeso(peso + 1);
-            System.out.println("Peso:" + peso);
-        }
-        //Não comer
-        if (escolha == 3) {
-            System.out.println(nome + "não comeu nada");
-            setPeso(peso - 2);
-            System.out.println("Peso: " + peso);
+        //Método status
+        public void status () {
+            System.out.println("\nNome: " + nome + "\nIdade: " + idade + "\nPeso: " + peso);
         }
 
-    }
-    //Método comer muito
-    public void comer_muito() {
-        System.out.println(nome + " comeu muito!");
-        this.peso += 5;
-        System.out.println("Peso:" + peso);
-        dormir();
-    }
 }
 
 
